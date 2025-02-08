@@ -13,7 +13,7 @@ export default class VueRouter {
      */
     this.matcher = createMatcher(options.routes || []);
 
-    // vue 的路由有3中，前端用到的有2种 hash(本次使用) history(h5 API)
+    // vue 的路由有3种，前端用到的有2种 hash(本次使用) history(h5 API)
     this.history = new HashHistory(this);
     // vue 钩子函数
     this.beforeEachs = [];
@@ -55,5 +55,11 @@ export default class VueRouter {
     this.beforeEachs.push(cb); // 页面切换之前会先执行这个函数
   }
 }
-
+/**
+ * vue router 使用时必须通过 Vue.ues(VueRouter), 
+ * 所以vue router本质上是 Vue 的插件
+ * Vue.use是一个用来安装Vue.js插件的方法。
+ * 插件通常是一个对象或者函数，如果是对象的话，需要有install方法，
+ * 而如果是函数的话，这个函数本身会被当作install方法。
+ **/ 
 VueRouter.install = install;

@@ -10,6 +10,7 @@ const install = (Vue) => {
   _Vue = Vue;
 
   // 默认希望将此router放到任何组件上
+  // 通过 Vue 插件机制注入 $router 和 $route。
   Vue.mixin({
     beforeCreate() {
       // 判断是不是根实例
